@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
+
 
 function PostButton() {
   const [show, setShow] = useState(false);
@@ -16,15 +18,24 @@ function PostButton() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Write a Dialogue!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <form>
+            <label>Write a Dialogue</label>
+            <textarea
+              required
+            ></textarea>
+            <label>Add hashtags</label>
+            <textarea></textarea>
+          </form>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Post
           </Button>
         </Modal.Footer>
       </Modal>

@@ -1,4 +1,4 @@
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 
 function PostTable() {
   return (
@@ -22,9 +22,9 @@ function PostTable() {
           <td>Test message</td>
         </tr>
         <tr>
-            <td>John</td>
-            <td>@Doc</td>
-            <td>Another test</td>
+          <td>John</td>
+          <td>@Doc</td>
+          <td>Another test</td>
         </tr>
       </tbody>
     </Table>

@@ -1,10 +1,10 @@
-import React from 'react'
-import PostTable from '../components/PostTable'
+import React from "react";
+import PostTable from "../components/PostTable/PostTable";
 
 export default function Home() {
   return (
     <div>
-        <PostTable/>
+      <PostTable />
     </div>
-  )
+  );
 }
