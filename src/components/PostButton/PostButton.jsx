@@ -14,6 +14,16 @@ const styles={
 }
 
 function PostButton() {
+  const [message, setMessage] = useState('');
+  const [hashtag, setHashtag] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const dialogue = { message, hashtag }
+
+    console.log(dialogue);
+  }
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -31,17 +41,24 @@ function PostButton() {
         </Modal.Header>
         <Modal.Body>
           <form>
-            {/* <label style={{ textAlign: 'left', display: 'block'}}>Write a Dialogue</label> */}
-            <textarea required style={styles.textbox}></textarea>
+            <label style={{ textAlign: 'left', display: 'block'}}>Write a Dialogue</label>
+            <textarea 
+              value={message} 
+              required
+              onChange={(e) => setMessage(e.target.value)}
+              style={styles.textbox}
+            ></textarea>
             <label style={{ textAlign: 'left', display: 'block'}}>Add hashtags</label>
-            <input type="text" style={styles.textbox} />
+            <input type="text" style={styles.textbox} value={hashtag} onChange={(e) => setHashtag(e.target.value)} />
           </form>
+          <p>{ message }</p>
+          <p>{ hashtag }</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSubmit}>
             Post
           </Button>
         </Modal.Footer>
