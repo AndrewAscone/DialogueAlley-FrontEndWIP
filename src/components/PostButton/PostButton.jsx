@@ -19,7 +19,12 @@ function PostButton() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const dialogue = { message, hashtag }
+    setShow(false);
+
+    setMessage('');
+    setHashtag('');
 
     console.log(dialogue);
   }
@@ -51,8 +56,6 @@ function PostButton() {
             <label style={{ textAlign: 'left', display: 'block'}}>Add hashtags</label>
             <input type="text" style={styles.textbox} value={hashtag} onChange={(e) => setHashtag(e.target.value)} />
           </form>
-          <p>{ message }</p>
-          <p>{ hashtag }</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
