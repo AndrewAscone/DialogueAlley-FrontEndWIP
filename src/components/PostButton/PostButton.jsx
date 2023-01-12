@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -17,7 +17,7 @@ function PostButton() {
   const [message, setMessage] = useState('');
   const [hashtag, setHashtag] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     const dialogue = { message, hashtag }
@@ -34,6 +34,25 @@ function PostButton() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  useEffect(() => {
+    const keyDownHandler = e => {
+
+      if(e.key === 'Enter'){
+        e.preventDefault();
+
+        handleSubmit(e);
+      }
+    };
+
+    document.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    }
+  }, [handleSubmit]);
+  
+  
+
   return (
     <>
       <Button variant="btn btn-outline-light" onClick={handleShow}>
@@ -45,7 +64,7 @@ function PostButton() {
           <Modal.Title>Write a Dialogue!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label style={{ textAlign: 'left', display: 'block'}}>Write a Dialogue</label>
             <textarea 
               value={message} 
