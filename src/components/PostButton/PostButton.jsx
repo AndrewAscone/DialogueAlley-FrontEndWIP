@@ -20,7 +20,7 @@ const createPostURL = "http://localhost:8080/post/add"
 function PostButton() {
   const [message, setMessage] = useState('');
   const [hashtag, setHashtag] = useState('');
-  const account_id = 1;
+  const account_id = 2;
 
   const handleSubmit = e => {
     e.preventDefault();

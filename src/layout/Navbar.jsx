@@ -12,14 +12,14 @@ export default function navbar() {
 
           <PostButton />
 
-          <a className="navbar-brand" href="/" style={{ marginLeft: "120px" }}>
+          <a className="navbar-brand" href="/" style={{ marginLeft: "-50px" }}>
             DIALOGUE ALLEY
           </a>
 
           <SearchButton/>
 
-          <Link className="btn btn-outline-light" to="/SearchHandle">Search Handle</Link>
-          <Link className="btn btn-outline-light" to="/SearchHashtag">Search Hashtag</Link>
+          {/* <Link className="btn btn-outline-light" to="/SearchHandle">Search Handle</Link>
+          <Link className="btn btn-outline-light" to="/SearchHashtag">Search Hashtag</Link> */}
 
           {/* <form className="d-flex" role="search">
             <input

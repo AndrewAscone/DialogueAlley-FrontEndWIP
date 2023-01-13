@@ -2,7 +2,7 @@ import Table from "react-bootstrap/Table";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const getAllPostsByHandleURL = "http://localhost:8080/post/searchHandle/@scone527"
+const getAllPostsByHandleURL = "http://localhost:8080/post/searchHandle/Scone"
 
 export default function SearchHandle(){
   

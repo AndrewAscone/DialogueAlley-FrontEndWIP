@@ -2,7 +2,7 @@ import Table from "react-bootstrap/Table";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const getAllPostsByHashtagURL = "http://localhost:8080/post/searchHashtag/ZipCode"
+const getAllPostsByHashtagURL = "http://localhost:8080/post/searchHashtag/Media"
 
 export default function SearchHashtag(){
   

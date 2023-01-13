@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import SearchHandle from "./SearchHandle";
+import { Link } from "react-router-dom";
 
 const styles={
   textbox: {
@@ -35,14 +36,20 @@ function SearchButton() {
 
   }
 
-  const handleSearchByHandle = e => {
-    e.preventDefault();
+  const handleSearchByHandle = () => {
 
-    <SearchHandle/>
-
+    console.log("Searching by Handle");
     setShow(false);
     setMessage('');
 
+
+  }
+
+  const handleSearchByHashtag = () => {
+
+    console.log("Searching by Hashtag");
+    setShow(false);
+    setMessage('');
 
   }
 
@@ -57,7 +64,7 @@ function SearchButton() {
       if(e.key === 'Enter'){
         e.preventDefault();
 
-        handleSubmit(e);
+        handleClose(e);
       }
     };
 
@@ -66,7 +73,7 @@ function SearchButton() {
     return () => {
       document.removeEventListener('keydown', keyDownHandler);
     }
-  }, [handleSubmit]);
+  }, [handleClose]);
   
   
 
@@ -81,7 +88,7 @@ function SearchButton() {
           <Modal.Title>Search by Alleyname or Hashtag</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleClose}>
             {/* <label style={{ textAlign: 'left', display: 'block'}}>Dialogue (255 character limit)</label> */}
             {/* <textarea 
               value={message} 
@@ -97,12 +104,17 @@ function SearchButton() {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
-            Hashtag
-          </Button>
-          <Button variant="primary" onClick={handleSearchByHandle}>
-            Handle
-          </Button>
+          <Link to="/SearchHashtag">
+            <Button variant="primary" onClick={handleSearchByHashtag}>
+                Hashtag
+            </Button>
+          </Link>
+          <Link to="/SearchHandle">
+            <Button variant="primary" onClick={handleSearchByHandle}>
+                Handle
+            </Button>
+          </Link>
+          
         </Modal.Footer>
       </Modal>
     </>
