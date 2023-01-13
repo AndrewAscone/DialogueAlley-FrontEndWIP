@@ -32,7 +32,7 @@ export default function PostTable(){
               Alleyname
             </td>
             <td>
-              Message
+              Dialogue
             </td>
             <td>
               Time Posted

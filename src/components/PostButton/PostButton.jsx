@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -8,19 +9,30 @@ const styles={
     padding: '6px 10px',
     margin: '10px 0',
     border: '1px solid black',
+    borderRadius: '8px',
     boxSizing: 'border-box',
     display: 'block'
   }
 }
 
+const createPostURL = "http://localhost:8080/post/add"
+
 function PostButton() {
   const [message, setMessage] = useState('');
   const [hashtag, setHashtag] = useState('');
+  const account_id = 2;
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    const dialogue = { message, hashtag }
+    const dialogue = { message, account_id }
+    fetch(createPostURL, {
+      method: 'POST',
+      headers: { "Content-Type" : "application/json" },
+      body: JSON.stringify(dialogue)
+    }).then(() => {
+      console.log("New dialogue added");
+    })
     setShow(false);
 
     setMessage('');
