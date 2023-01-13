@@ -77,7 +77,7 @@ function PostButton() {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
-            <label style={{ textAlign: 'left', display: 'block'}}>Write a Dialogue</label>
+            <label style={{ textAlign: 'left', display: 'block'}}>Dialogue (255 character limit)</label>
             <textarea 
               value={message} 
               required
