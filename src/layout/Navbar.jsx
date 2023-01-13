@@ -1,30 +1,27 @@
 import React from "react";
 import PostButton from "../components/PostButton/PostButton";
+import { Link } from "react-router-dom";
+import SearchButton from "../components/SearchButton";
 
 export default function navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          
 
           <PostButton />
 
-          <a className="navbar-brand" href="#" style={{ marginLeft: "150px" }}>
+          <a className="navbar-brand" href="/" style={{ marginLeft: "120px" }}>
             DIALOGUE ALLEY
           </a>
 
-          <form className="d-flex" role="search">
+          <SearchButton/>
+
+          <Link className="btn btn-outline-light" to="/SearchHandle">Search Handle</Link>
+          <Link className="btn btn-outline-light" to="/SearchHashtag">Search Hashtag</Link>
+
+          {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -34,7 +31,7 @@ export default function navbar() {
             <button className="btn btn-outline-light" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
         </div>
       </nav>
     </div>

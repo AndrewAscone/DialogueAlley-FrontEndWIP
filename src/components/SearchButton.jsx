@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import SearchHandle from "./SearchHandle";
 
 const styles={
   textbox: {
@@ -15,30 +16,34 @@ const styles={
   }
 }
 
-const createPostURL = "http://localhost:8080/post/add"
-
-function PostButton() {
+function SearchButton() {
   const [message, setMessage] = useState('');
-  const [hashtag, setHashtag] = useState('');
-  const account_id = 1;
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    const dialogue = { message, account_id }
-    fetch(createPostURL, {
-      method: 'POST',
-      headers: { "Content-Type" : "application/json" },
-      body: JSON.stringify(dialogue)
-    }).then(() => {
-      console.log("New dialogue added");
-    })
+    // fetch(createPostURL, {
+    //   method: 'POST',
+    //   headers: { "Content-Type" : "application/json" },
+    //   body: JSON.stringify(dialogue)
+    // }).then(() => {
+    //   console.log("New dialogue added");
+    // })
     setShow(false);
 
     setMessage('');
-    setHashtag('');
 
-    console.log(dialogue);
+  }
+
+  const handleSearchByHandle = e => {
+    e.preventDefault();
+
+    <SearchHandle/>
+
+    setShow(false);
+    setMessage('');
+
+
   }
 
   const [show, setShow] = useState(false);
@@ -68,24 +73,24 @@ function PostButton() {
   return (
     <>
       <Button variant="btn btn-outline-light" onClick={handleShow}>
-        Post Dialogue
+        Search
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Write a Dialogue!</Modal.Title>
+          <Modal.Title>Search by Alleyname or Hashtag</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
-            <label style={{ textAlign: 'left', display: 'block'}}>Dialogue (255 character limit)</label>
-            <textarea 
+            {/* <label style={{ textAlign: 'left', display: 'block'}}>Dialogue (255 character limit)</label> */}
+            {/* <textarea 
               value={message} 
               required
               onChange={(e) => setMessage(e.target.value)}
               style={styles.textbox}
-            ></textarea>
-            <label style={{ textAlign: 'left', display: 'block'}}>Add hashtags</label>
-            <input type="text" style={styles.textbox} value={hashtag} onChange={(e) => setHashtag(e.target.value)} />
+            ></textarea> */}
+            {/* <label style={{ textAlign: 'left', display: 'block'}}>Add hashtags</label> */}
+            <input type="text" style={styles.textbox} value={message} onChange={(e) => setMessage(e.target.value)} />
           </form>
         </Modal.Body>
         <Modal.Footer>
@@ -93,7 +98,10 @@ function PostButton() {
             Cancel
           </Button>
           <Button variant="primary" onClick={handleSubmit}>
-            Post
+            Hashtag
+          </Button>
+          <Button variant="primary" onClick={handleSearchByHandle}>
+            Handle
           </Button>
         </Modal.Footer>
       </Modal>
@@ -101,4 +109,4 @@ function PostButton() {
   );
 }
 
-export default PostButton;
+export default SearchButton;
