@@ -18,29 +18,13 @@ const styles={
 }
 
 function SearchButton() {
-  const [message, setMessage] = useState('');
-
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    // fetch(createPostURL, {
-    //   method: 'POST',
-    //   headers: { "Content-Type" : "application/json" },
-    //   body: JSON.stringify(dialogue)
-    // }).then(() => {
-    //   console.log("New dialogue added");
-    // })
-    setShow(false);
-
-    setMessage('');
-
-  }
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchByHandle = () => {
 
     console.log("Searching by Handle");
     setShow(false);
-    setMessage('');
+    setSearchQuery('');
 
 
   }
@@ -49,7 +33,7 @@ function SearchButton() {
 
     console.log("Searching by Hashtag");
     setShow(false);
-    setMessage('');
+    setSearchQuery('');
 
   }
 
@@ -89,15 +73,7 @@ function SearchButton() {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleClose}>
-            {/* <label style={{ textAlign: 'left', display: 'block'}}>Dialogue (255 character limit)</label> */}
-            {/* <textarea 
-              value={message} 
-              required
-              onChange={(e) => setMessage(e.target.value)}
-              style={styles.textbox}
-            ></textarea> */}
-            {/* <label style={{ textAlign: 'left', display: 'block'}}>Add hashtags</label> */}
-            <input type="text" style={styles.textbox} value={message} onChange={(e) => setMessage(e.target.value)} />
+            <input type="text" style={styles.textbox} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
           </form>
         </Modal.Body>
         <Modal.Footer>
