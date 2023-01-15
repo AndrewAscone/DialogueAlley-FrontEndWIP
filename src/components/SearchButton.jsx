@@ -22,7 +22,8 @@ function SearchButton() {
 
   const handleSearchByHandle = () => {
 
-    console.log("Searching by Handle");
+    
+    console.log(searchQuery);
     setShow(false);
     setSearchQuery('');
 
@@ -85,7 +86,7 @@ function SearchButton() {
                 Hashtag
             </Button>
           </Link>
-          <Link to="/SearchHandle">
+          <Link to={`/SearchHandle/${searchQuery}`}>
             <Button variant="primary" onClick={handleSearchByHandle}>
                 Handle
             </Button>

@@ -1,20 +1,27 @@
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as useParams } from "react-router-dom";
 
-const getAllPostsByHandleURL = "http://localhost:8080/post/searchHandle/Scone"
+
 
 export default function SearchHandle(){
   
   const [post, setPost] = useState([]);
 
+  
+  const Handle = () => {
+    const { id } = useParams();
+  }
+  const getAllPostsByHandleURL = "http://localhost:8080/post/searchHandle/Scone"
   useEffect(() => {
-    getAllPosts();
+    getAllPosts(); 
   }, []);
 
   const getAllPosts = async () => {
     const response = await axios.get(getAllPostsByHandleURL)
     setPost(response.data)
+    // console.log(Handle());
   };
 
   //if(!post) return null;

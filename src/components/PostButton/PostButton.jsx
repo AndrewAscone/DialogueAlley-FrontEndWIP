@@ -38,7 +38,12 @@ function PostButton() {
     setHashtag('');
 
     console.log(dialogue);
+    refreshPage();
   }
+
+  const refreshPage = () => {
+    window.location.reload();
+  };
 
   const [show, setShow] = useState(false);
 

@@ -13,7 +13,7 @@ function App() {
       {/* <Home /> */}
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/searchHandle" element={<SearchHandle/>}/>
+        <Route path="/searchHandle/:id" element={<SearchHandle/>}/>
         <Route path="/searchHashtag" element={<SearchHashtag/>}/>
       </Routes>
     </div>
