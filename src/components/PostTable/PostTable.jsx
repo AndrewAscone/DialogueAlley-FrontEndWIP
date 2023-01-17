@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import moment from "moment";
 
-const getAllPostsURL = "http://localhost:8080/post/all"
+const getAllPostsURL = "http://localhost:8080/post/alldesc"
 
 export default function PostTable(){
   
@@ -40,18 +41,18 @@ export default function PostTable(){
         </thead>
         <tbody>
           {post.map((post, index) => (
-            <tr>
+            <tr key={index.id}>
               <td>
-                {post.assoc_account.first_name}
+                {post.first_name}
               </td>
               <td>
-                {post.assoc_account.handle}
+                {post.handle}
               </td>
               <td>
                 {post.message}
               </td>
               <td>
-                {post.date_time}
+              {moment(post.date_time).format('MMMM Do YYYY, h:mm:ss a')}
               </td>
             </tr>
 

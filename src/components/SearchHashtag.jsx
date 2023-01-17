@@ -41,7 +41,7 @@ export default function SearchHashtag(){
         </thead>
         <tbody>
           {post.map((post, index) => (
-            <tr>
+            <tr key={index.id}>
               <td>
                 {post.first_name}
               </td>

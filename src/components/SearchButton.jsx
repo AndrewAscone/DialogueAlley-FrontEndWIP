@@ -17,12 +17,21 @@ const styles={
   }
 }
 
-function SearchButton() {
+export const HandleSearch = (props) =>{
+  const [foundHandle, setFoundHandle] = useState('');
+  console.log(props.searchQuery.value);
+  setFoundHandle = props.searchQuery.value;
+  return foundHandle;
+};
+
+
+export const SearchButton = () => {
+  
   const [searchQuery, setSearchQuery] = useState('');
+
 
   const handleSearchByHandle = () => {
 
-    
     console.log(searchQuery);
     setShow(false);
     setSearchQuery('');
@@ -32,7 +41,7 @@ function SearchButton() {
 
   const handleSearchByHashtag = () => {
 
-    console.log("Searching by Hashtag");
+    console.log(searchQuery);
     setShow(false);
     setSearchQuery('');
 
@@ -81,7 +90,7 @@ function SearchButton() {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Link to="/SearchHashtag">
+          <Link to={`/SearchHashtag/${searchQuery}`}>
             <Button variant="primary" onClick={handleSearchByHashtag}>
                 Hashtag
             </Button>
@@ -98,4 +107,4 @@ function SearchButton() {
   );
 }
 
-export default SearchButton;
+// export default SearchButton;

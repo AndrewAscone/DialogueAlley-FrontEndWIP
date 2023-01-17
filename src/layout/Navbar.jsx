@@ -1,7 +1,7 @@
 import React from "react";
 import PostButton from "../components/PostButton/PostButton";
 import { Link } from "react-router-dom";
-import SearchButton from "../components/SearchButton";
+import {SearchButton} from "../components/SearchButton";
 
 export default function navbar() {
   return (
